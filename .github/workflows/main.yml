@@ -12,7 +12,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: Prepare project
         run: |
-          if [ -f "vidyasetu-apk-builder.zip" ]; then unzip -o vidyasetu-apk-builder.zip; fi
+          for f in *.zip; do [ -f "$f" ] && unzip -o "$f"; done
           if [ -f "vidyasetu-apk-builder/settings.gradle.kts" ]; then cp -r vidyasetu-apk-builder/* .; fi
       - uses: actions/setup-java@v4
         with:
